@@ -23,6 +23,7 @@ logger = logging.getLogger()
 
 
 import numpy as np
+import os
 import requests
 
 
@@ -74,7 +75,9 @@ class Strategy:
 
 
         # this history_csv will
-        self.history_csv = fr"C:\Users\Asad\Desktop\tradingBotWeb\app\history\{self.stat_name}_history.csv" 
+        if not os.path.exists('history'):
+            os.makedirs('history')
+        self.history_csv = fr"history\{self.stat_name}_history.csv" 
         self.history_dict = []
 
         # headers = [

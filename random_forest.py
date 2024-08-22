@@ -30,7 +30,8 @@ TF_EQUIV = {"1m": 60, '3m':180,"5m": 300, "15m": 900, "30m": 900, "1h": 3600, "4
 class Random_Forest():
     def __init__(self, client, contract: Contract, timeframe: str):
         print("initializing RANDOM FOREST CLASSIFIER")
-        
+        if not os.path.exists('predictionsResults'):
+            os.makedirs('predictionsResults')
         self.result_csv_path = f"predictionsResults/random_forest_{timeframe}.csv"
         
         self.client = client

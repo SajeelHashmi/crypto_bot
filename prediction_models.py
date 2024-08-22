@@ -79,6 +79,8 @@ class ComplexLSTMModel(nn.Module):
 class LSTM_BTC():
     def __init__(self, client, contract: Contract, timeframe: str,plus_1  = False):
         print("initializing LSTM")
+        if not os.path.exists('predictionsResults'):
+            os.makedirs('predictionsResults')
         if plus_1:
             self.result_csv_path = f"predictionsResults/hybrid_LSTM_{timeframe}_plus_1.csv"
         else:

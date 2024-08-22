@@ -32,7 +32,8 @@ stream_handler = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s %(levelname)s :: %(message)s')
 stream_handler.setFormatter(formatter)
 stream_handler.setLevel(logging.INFO)
-
+if not os.path.exists('logs'):
+    os.makedirs('logs')
 file_handler = logging.FileHandler('logs/info.log')
 file_handler.setFormatter(formatter)
 file_handler.setLevel(logging.DEBUG)

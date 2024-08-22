@@ -1,0 +1,10 @@
+env
+.env
+__pycache__
+*.db
+node_modules
+*.ipynb
+logs
+history
+PREVIOUS_ITERS
+random_forest.pkl

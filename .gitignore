@@ -8,3 +8,4 @@ logs
 history
 PREVIOUS_ITERS
 random_forest.pkl
+*.csv

@@ -1,10 +1,12 @@
 import smtplib
 from email.message import EmailMessage
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # whenever a person signs in send them a message
-sender = "sajeelhashmi.12@gmail.com"
-password = "txjd xpwd fzmd yozv"
-host = ""
+sender = os.environ.get('EMAIL_SENDER')
+password = os.environ.get("EMAIL_PASS")
 
 
 

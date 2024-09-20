@@ -33,6 +33,11 @@ import traceback
 import numpy as np
 from telegram_bot import Telegram_Bot
 from random_forest  import Random_Forest
+from dotenv import load_dotenv
+import os
+from twilio.rest import Client
+
+load_dotenv()  
 # TODO
 # Walk Through the whole code and check every where wherever you see a potential error write a log 
 # Find bottle necks and refactor in that place
@@ -40,6 +45,7 @@ from random_forest  import Random_Forest
 # close position endpoint Testing 
 # telegram bot testing and incorporation 
 # Create a strategy controller class that controls strategies fro each coin and time frame right now we are using active contracts dictionary
+
 
 
 
@@ -58,6 +64,9 @@ class BinanceFuturesClient:
         self.stopThreads = False
         self._public_key = public_key
         self._secret_key = secret_key
+        account_sid = os.environ.get('TWILLO_SID')
+        auth_token = os.environ.get('TWILLO_AUTH')
+        self.twillio_client = Client(account_sid,auth_token)
 
         # print(np.zeros(shape=(1,1)))
         self.telegram = Telegram_Bot(disabled=True)

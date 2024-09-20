@@ -12,6 +12,7 @@ from emailAlerts import sendEmail,sendEmailTest
 import csv
 from datetime import datetime
 
+from twilio.rest import Client
 
 # from connection import Database
 
@@ -203,7 +204,7 @@ class Strategy:
 
         return
         self.send_msg_telegram(msg)
-        message = self.twillio_client.messages.create(from_ = '+18669859293',body=msg,to='+923139534555')
+        message = self.client.twillio_client.messages.create(from_ = '+18669859293',body=msg,to='+923139534555')
         print(message.sid)
                 
 

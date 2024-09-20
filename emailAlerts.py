@@ -67,3 +67,6 @@ def sendEmailTest(msg,tradeId=None):
         print("email sent")
     except:
         return
+    
+if __name__ =="__main__":
+    sendEmailTest("TEST")  
